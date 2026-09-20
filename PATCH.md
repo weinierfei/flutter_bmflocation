@@ -1,6 +1,6 @@
 # 本地补丁说明
 
-**基线版本：** flutter_bmflocation 3.8.4（pub.dev）
+**基线版本：** flutter_bmflocation 3.8.5（pub.dev）
 
 ## 补丁原因
 
@@ -27,3 +27,9 @@ Flywear 的 `workmanager` 后台任务会通过 `FlutterEngine(context)` 默认�
 1. 用新版源码覆盖本目录（保留 PATCH.md）
 2. 将本补丁重新应用到新版 `FlutterBmflocationPlugin.java`（变更点见 PATCH.md）
 3. 重新运行 `fvm flutter pub get` 和 `fvm flutter analyze` 验证
+
+## 3.8.5 升级
+
+- 同步官方 Android 定位 SDK 9.7.0 和 `onceLocation` 参数。
+- 保留原有多引擎通道持有者补丁；仍不覆盖后台引擎先注册的既有限制。
+- Android 单次定位显式设置 `onceLocation: true`；连续定位设置 `false`，`scanspan` 至少为 1000ms。

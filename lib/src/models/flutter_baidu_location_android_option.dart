@@ -24,9 +24,13 @@ class BaiduLocationAndroidOption extends BMFLocationBaseOption {
   /// 是否使用gps
   bool? openGps;
 
+  /// 是否设置为单次定位
+  bool? onceLocation;
+
   /// 可选，设置发起定位请求的间隔，int类型，单位ms
   /// 如果设置为0，则代表单次定位，即仅定位一次，默认为0
   /// 如果设置非0，需设置1000ms以上才有效
+  /// Android>=3.8.5，不支持配置0，最小配置1000。单次定位请设置#setOnceLocation
   int? scanspan;
 
   /// 设置定位模式，可选的模式有高精度、仅设备、仅网络。默认为高精度模式
@@ -75,6 +79,11 @@ class BaiduLocationAndroidOption extends BMFLocationBaseOption {
     this.openGps = openGps;
   }
 
+  /// 是否单次定位
+  void setOnceLocation(bool onceLocation) {
+    this.onceLocation = onceLocation;
+  }
+
   /// 可选，设置发起定位请求的间隔，int类型，单位ms
   /// 如果设置为0，则代表单次定位，即仅定位一次，默认为0
   /// 如果设置非0，需设置1000ms以上才有效
@@ -102,6 +111,7 @@ class BaiduLocationAndroidOption extends BMFLocationBaseOption {
     this.isNeedNewVersionRgc,
     this.isNeedLocationDescribe,
     this.openGps,
+    this.onceLocation,
     this.scanspan = 0,
     this.locationMode = BMFLocationMode.hightAccuracy,
     this.locationPurpose = BMFLocationPurpose.other,
@@ -117,6 +127,7 @@ class BaiduLocationAndroidOption extends BMFLocationBaseOption {
       "isNeedLocationPoiList": isNeedLocationPoiList,
       "isNeedNewVersionRgc": isNeedNewVersionRgc,
       "openGps": openGps,
+      "onceLocation": onceLocation,
       "isNeedLocationDescribe": isNeedLocationDescribe,
       "scanspan": scanspan,
       "locationMode": locationMode?.index,

@@ -97,6 +97,17 @@ public class LocationSetOptionsHandler  extends MethodChannelHandler{
                 }
             }
 
+            // 可选，设置是否单次定位，默认false
+            if (arguments.containsKey("onceLocation") && arguments.get("onceLocation") != null) {
+                if (((boolean) arguments.get("onceLocation"))) {
+                    option.setOnceLocation(true);
+                } else {
+                    option.setOnceLocation(false);
+                }
+            } else {
+                option.setOnceLocation(false);
+            }
+
             // 可选，设置是否允许返回逆地理地址信息，默认是true
             if (arguments.containsKey("isNeedLocationDescribe") && arguments.get("isNeedLocationDescribe") != null) {
                 if (((boolean) arguments.get("isNeedLocationDescribe"))) {

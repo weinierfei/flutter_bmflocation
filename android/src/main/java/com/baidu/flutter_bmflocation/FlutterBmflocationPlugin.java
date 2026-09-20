@@ -30,7 +30,7 @@ public class FlutterBmflocationPlugin implements FlutterPlugin, MethodCallHandle
   public static Activity mActivity = null;
 
   /**
-   * 多引擎安全补丁（Flywear local patch，基线 3.8.4）：
+   * 多引擎安全补丁（Flywear local patch，基线 3.8.5）：
    * workmanager 后台任务会拉起第二个 FlutterEngine 并自动注册全部插件，
    * 原版 onAttachedToEngine 会无条件覆盖 static channel 单例，
    * 后台引擎销毁后单例指向已 detach 的死 channel，导致进程级定位失败。

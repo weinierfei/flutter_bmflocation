@@ -1,6 +1,6 @@
 name: flutter_bmflocation
 description: BaiduMapLocation plugin for flutter. This plugin provides a cross-platform (iOS, Android) API to request location.
-version: 3.8.4
+version: 3.8.5
 homepage: https://lbsyun.baidu.com/index.php?title=flutter/loc
 
 environment:
